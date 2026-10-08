@@ -3477,7 +3477,7 @@ class MainWindow(QMainWindow):
             err = self._video_player.errorString()
         except Exception:
             pass
-        self.write_log(f"SYS: The video could not be played{(' — ' + err) if err else ''}.")
+        self._log_sig.emit(f"SYS: The video could not be played{(' — ' + err) if err else ''}.")
         self._on_video_close()
 
     def stop_video(self) -> None:
